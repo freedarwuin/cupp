@@ -635,6 +635,17 @@ def generate_wordlist_from_profile(profile):
     komb004 = [""]
     komb005 = [""]
     komb006 = [""]
+    komb007 = ['']
+    komb008 = ['']
+    if spechars1 == "y":
+		komb001 = list(komb(kombinaa, spechars))
+		komb002 = list(komb(kombinaac, spechars))
+		komb003 = list(komb(kombinaaw , spechars))
+		komb004 = list(komb(kombinaak , spechars))
+		komb005 = list(komb(word, spechars))
+		komb006 = list(komb(reverse, spechars))
+		komb007 = list(komb(spechars,kombinaa))
+		komb008 = list(komb(spechars,komb13))
     if len(profile["spechars"]) > 0:
         komb001 = list(komb(kombinaa, profile["spechars"]))
         komb002 = list(komb(kombinaac, profile["spechars"]))
@@ -642,6 +653,8 @@ def generate_wordlist_from_profile(profile):
         komb004 = list(komb(kombinaak, profile["spechars"]))
         komb005 = list(komb(word, profile["spechars"]))
         komb006 = list(komb(reverse, profile["spechars"]))
+	komb007 = list(komb(profile["spechars"],kombinaa))
+	komb008 = list(komb(profile["spechars"],komb13))
 
     print("[+] Sorting list and removing duplicates...")
 
@@ -660,6 +673,8 @@ def generate_wordlist_from_profile(profile):
     komb_unique010 = list(dict.fromkeys(komb004).keys())
     komb_unique011 = list(dict.fromkeys(komb005).keys())
     komb_unique012 = list(dict.fromkeys(komb006).keys())
+    komb_unique013 = list(dict.fromkeys(komb007).keys())
+    komb_unique014 = list(dict.fromkeys(komb008).keys())
 
     uniqlist = (
         bdss
@@ -683,6 +698,9 @@ def generate_wordlist_from_profile(profile):
         + komb_unique010
         + komb_unique011
         + komb_unique012
+        + komb_unique013
+        + komb_unique014
+	    
     )
     unique_lista = list(dict.fromkeys(uniqlist).keys())
     unique_leet = []
@@ -1092,4 +1110,4 @@ def get_parser():
 
 
 if __name__ == "__main__":
-    main()
+	main()
